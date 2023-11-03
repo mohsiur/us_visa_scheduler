@@ -31,6 +31,7 @@ SCHEDULE_ID = config["PERSONAL_INFO"]["SCHEDULE_ID"]
 # Target Period:
 PRIOD_START = config["PERSONAL_INFO"]["PRIOD_START"]
 PRIOD_END = config["PERSONAL_INFO"]["PRIOD_END"]
+ENDLESS_SEARCH = config["PERSONAL_INFO"]["ENDLESS_SEARCH"]
 # Embassy Section:
 YOUR_EMBASSY = config["PERSONAL_INFO"]["YOUR_EMBASSY"]
 EMBASSY = Embassies[YOUR_EMBASSY][0]
@@ -198,9 +199,24 @@ def reschedule(date):
         "appointments[consulate_appointment][date]": date,
         "appointments[consulate_appointment][time]": time,
     }
+
+    if YOUR_EMBASSY != "en-gb-ldn":
+        temp = {
+            "utf8": driver.find_element(by=By.NAME, value="utf8").get_attribute(
+                "value"
+            ),
+        }
+        temp.update(data)
+        data = temp
+
     r = requests.post(APPOINTMENT_URL, headers=headers, data=data)
-    # if r.text.find("Successfully Scheduled") != -1:
-    if r.text.find("You have successfully scheduled your visa appointment") != -1:
+
+    if YOUR_EMBASSY == "en-gb-ldn":
+        success_resch_msg = "You have successfully scheduled your visa appointment"
+    else:
+        success_resch_msg = "Successfully Scheduled"
+
+    if r.text.find(success_resch_msg) != -1:
         title = "SUCCESS"
         msg = f"Rescheduled Successfully! {date} {time}"
     else:
@@ -245,6 +261,7 @@ def get_available_date(dates):
 
     PED = datetime.strptime(PRIOD_END, "%Y-%m-%d")
     PSD = datetime.strptime(PRIOD_START, "%Y-%m-%d")
+
     for d in dates:
         date = d.get("date")
         if is_in_period(date, PSD, PED):
@@ -306,7 +323,16 @@ if __name__ == "__main__":
                 if date:
                     # A good date to schedule for
                     END_MSG_TITLE, msg = reschedule(date)
-                    break
+
+                    if ENDLESS_SEARCH:
+                        print(msg)
+                        info_logger(LOG_FILE_NAME, msg)
+                        send_notification(END_MSG_TITLE, msg)
+
+                        PRIOD_END = date
+                        continue
+                    else:
+                        break
                 RETRY_WAIT_TIME = random.randint(RETRY_TIME_L_BOUND, RETRY_TIME_U_BOUND)
                 t1 = time.time()
                 total_time = t1 - t0

@@ -1,15 +1,17 @@
 [PERSONAL_INFO]
 ; Account and current appointment info from https://ais.usvisa-info.com
-USERNAME = nekeg74@gmail.com
-PASSWORD = igigig1999
+USERNAME = account@gmail.com
+PASSWORD = account_pass
 ; Find SCHEDULE_ID in re-schedule page link:
 ; https://ais.usvisa-info.com/en-am/niv/schedule/{SCHEDULE_ID}/appointment
-SCHEDULE_ID = 53121195 
+SCHEDULE_ID = 99999999
 ; Target Period:
-PRIOD_START = 2023-11-2
-PRIOD_END = 2024-04-11
+PRIOD_START = 2023-03-20
+PRIOD_END = 2023-11-31
+; Change to true if you want to continue searching for earier time in a time period after a time is found 
+ENDLESS_SEARCH = True
 ; Change "en-am-yer", based on your embassy Abbreviation in embassy.py list.
-YOUR_EMBASSY = en-gb-ldn
+YOUR_EMBASSY = en-am-yer
 
 [CHROMEDRIVER]
 ; Details for the script to control Chrome
@@ -19,8 +21,8 @@ HUB_ADDRESS = http://localhost:9515/wd/hub
 
 [NOTIFICATION]
 ; Get push notifications via https://pushover.net/ (optional)
-PUSHOVER_TOKEN = azh84f3sapmcuco4tm8ku4691ho6kb
-PUSHOVER_USER = u1skd91d8i25tmsqcfbiahx6oefu99
+PUSHOVER_TOKEN = 
+PUSHOVER_USER = 
 ; Get email notifications via https://sendgrid.com/ (optional)
 SENDGRID_API_KEY = 
 ; Get push notifications via PERSONAL WEBSITE http://yoursite.com (Optional)
@@ -38,12 +40,3 @@ WORK_LIMIT_TIME = 1.5
 WORK_COOLDOWN_TIME = 2.25
 ; Temporary Banned (empty list): wait COOLDOWN_TIME (hours)
 BAN_COOLDOWN_TIME = 5
-
-
-
-authenticity_token=8oXEX4KQjWDSBS%2BCQ4uaLV0JpukKxSlCiJXNsAMFoWellkAymBPb%2BAw%2F7dUAxkEOWi7%2BRWakueH7nBT1oZd%2B6A%3D%3D&
-confirmed_limit_message=1&
-use_consulate_appointment_capacity=true&
-appointments%5Bconsulate_appointment%5D%5Bfacility_id%5D=17
-&appointments%5Bconsulate_appointment%5D%5Bdate%5D=2024-02-14
-&appointments%5Bconsulate_appointment%5D%5Btime%5D=08%3A00

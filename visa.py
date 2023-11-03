@@ -4,7 +4,6 @@ import random
 import requests
 import configparser
 from datetime import datetime
-import traceback
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service

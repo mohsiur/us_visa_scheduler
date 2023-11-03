@@ -29,7 +29,7 @@ pip install sendgrid==6.9.7
 ## How to use
 
 - Initial setup!
-- Edit information [config.ini.example file]. Then remove the ".example" from file name setting ENDLESS_SEARCH to True will make bot keep searching for an earlier date after the meeting was rescheduled to a date within specified range.
+- Edit information [config.ini.example file]. Then remove the ".example" from file name. Setting ENDLESS_SEARCH to True will make bot keep searching for an earlier date after the meeting was rescheduled to a date within specified range.
 - [Optional] Edit your push notification accounts information [config.ini.example file].
 - [Optional] Edit your website push notification [config.ini.example and esender.php files].
 - Run visa.py file, using `python3 visa.py`

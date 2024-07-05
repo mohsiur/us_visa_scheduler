@@ -1,6 +1,10 @@
 # visa_rescheduler
 
-The visa_rescheduler is a bot for US VISA (usvisa-info.com) appointment rescheduling. This bot can help you reschedule your appointment to your desired time period.
+The visa_rescheduler is a bot for US VISA (usvisa-info.com) appointment rescheduling. This bot can help you reschedule your appointment to your desired time period. This is a forked version which handles a lot of the bugs.
+
+## Known Issues
+
+- While this works great occasionally, the script will error out, I wasn't able to debug the issue, so you just have to rerun the script. 
 
 ## Prerequisites
 
@@ -20,10 +24,7 @@ The visa_rescheduler is a bot for US VISA (usvisa-info.com) appointment reschedu
 - Install the required python packages: Just run the bat file in the Microsoft Windows. Or run the below commands:
 
 ```
-pip install requests==2.27.1
-pip install selenium==4.2.0
-pip install webdriver-manager==3.7.0
-pip install sendgrid==6.9.7
+pip install -r requirements.txt
 ```
 
 ## How to use

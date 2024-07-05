@@ -1,17 +1,17 @@
 [PERSONAL_INFO]
 ; Account and current appointment info from https://ais.usvisa-info.com
-USERNAME = account@gmail.com
-PASSWORD = account_pass
+USERNAME = hello@world.com
+PASSWORD = yourpassword
 ; Find SCHEDULE_ID in re-schedule page link:
 ; https://ais.usvisa-info.com/en-am/niv/schedule/{SCHEDULE_ID}/appointment
-SCHEDULE_ID = 99999999
+SCHEDULE_ID = 59688056
 ; Target Period:
-PRIOD_START = 2023-03-20
-PRIOD_END = 2023-11-31
+PRIOD_START = YYYY-MM-DD
+PRIOD_END = YYYY-MM-DD
 ; Change to true if you want to continue searching for earier time in a time period after a time is found 
 ENDLESS_SEARCH = True
 ; Change "en-am-yer", based on your embassy Abbreviation in embassy.py list.
-YOUR_EMBASSY = en-am-yer
+YOUR_EMBASSY = en-gb-ldn
 
 [CHROMEDRIVER]
 ; Details for the script to control Chrome
@@ -21,8 +21,8 @@ HUB_ADDRESS = http://localhost:9515/wd/hub
 
 [NOTIFICATION]
 ; Get push notifications via https://pushover.net/ (optional)
-PUSHOVER_TOKEN = 
-PUSHOVER_USER = 
+PUSHOVER_TOKEN = *********
+PUSHOVER_USER = *********
 ; Get email notifications via https://sendgrid.com/ (optional)
 SENDGRID_API_KEY = 
 ; Get push notifications via PERSONAL WEBSITE http://yoursite.com (Optional)

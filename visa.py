@@ -322,7 +322,6 @@ if __name__ == "__main__":
                 if date:
                     # A good date to schedule for
                     END_MSG_TITLE, msg = reschedule(date)
-
                     if ENDLESS_SEARCH:
                         print(msg)
                         info_logger(LOG_FILE_NAME, msg)
@@ -332,7 +331,7 @@ if __name__ == "__main__":
                         continue
                     else:
                         break
-                RETRY_WAIT_TIME = random.randint(RETRY_TIME_L_BOUND, RETRY_TIME_U_BOUND)
+                RETRY_WAIT_TIME = random.randint((int) (RETRY_TIME_L_BOUND), (int) (RETRY_TIME_U_BOUND))
                 t1 = time.time()
                 total_time = t1 - t0
                 msg = "\nWorking Time:  ~ {:.2f} minutes".format(total_time / minute)
